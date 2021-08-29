@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+ 
+<suite name="Suite" parallel = "tests" thread-count= "2"> <!-- parallel- classes,methods   -->
+
+  <test name="Test">
+   	<groups>
+   	<define name = "General">
+  		 <include name="search"/>
+  		 <include name="smoke"/>
+  </define>
+  
+  		<run>
+  		  <include name="General"/>
+  		  <!-- <include name="smoke"/> -->
+  		</run>
+  		
+  		<dependencies>
+  			
+  			<group name ="Regression" depends-on="smoke"></group>
+  	
+  		</dependencies>
+  	</groups>
+  	
+    <classes>
+      <class name="webTable">
+      <methods>
+    <include name="test1" invocation-numbers="1"/>
+    <include name="test2" invocation-numbers="2"/>
+      </methods>
+      </class>
+         <class name="webTable1">
+      <methods>
+    <include name="test1" invocation-numbers="1"/>
+    <include name="test2" invocation-numbers="2"/>
+      </methods>
+      </class>
+    </classes>
+  </test> <!-- Test -->
+   <test name="Test2">
+   <parameter name="testparam" value= "test"></parameter>
+    <classes>
+      <class name="webTable"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
