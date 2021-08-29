@@ -12,7 +12,7 @@
   
   		<run>
   		  <include name="General"/>
-  		  <!-- <include name="smoke"/> -->
+  		  <!-- <include name="smoke121212"/> -->
   		</run>
   		
   		<dependencies>
